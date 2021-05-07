@@ -1,0 +1,43 @@
+html ,body{
+    background-color: rgb(255, 237, 225);
+   
+    overflow: auto;
+}
+
+.sidebar{
+    background-color: white;
+    display: block;
+ 
+    height: 100%;
+}
+.formA{
+    background-color: rgb(253, 253, 253);
+    padding: 5%;
+    margin: 20%;
+    border-radius: 25px;
+}
+.formB{
+    background-color: rgb(253, 253, 253);
+    padding: 3%;
+    margin: 2%;
+    border-radius: 25px;
+}
+#courses{
+    display: none;
+}
+#resume{
+    display: none;
+}
+#contact{
+    display: none;
+}
+.courseTable{
+    border-radius: 5px;
+    background-color: white;
+   
+}
+
+#displayName ,#displayRole{
+    text-transform: uppercase;
+    font-size: 150%;
+}

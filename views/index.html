@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+    integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+  <link rel="stylesheet" href="login.css">
+
+  <title>Jose Del Valle</title>
+</head>
+
+<body>
+  <div class="container-fluid h-100">
+    <div class="row  h-100 w-100">
+      <div class="col-lg-1 sidebar text-center p-2 shadow" id="sidebar">
+        <div class="p-3"></div>
+        <div class="btn-group-vertical btn-block  navbar-collapse" role="group" aria-label="Basic example">
+          <button type="button" class="btn border-top border-bottom p-3 rounded-0" id="defaultOpen"
+            onclick="swicthTab(event, 'login')"><i class="fas fa-home"></i><br>LOG IN</button>
+          <button type="button" class="btn border-top border-bottom p-3 rounded-0" id="courses_tab"
+            onclick="swicthTab(event, 'courses')"><i class="fas fa-briefcase"></i><br>COURSES</button>
+
+        </div>
+      </div>
+      <div class="col justify-content-center text-center tabcontent" id="login">
+        <form class="pt-5 mt-3 formA">
+          <div class="form-group">
+            <label for="usernameInput">Username</label>
+            <input type="name" class="form-control" id="usernameInput" placeholder="Enter username">
+            <small class="form-text text-muted">We'll never share your username or password with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="passwordInput">Password</label>
+            <input type="password" class="form-control" id="passwordInput" placeholder="Password">
+          </div>
+          <button id="loginButton" type="submitLogin"class="btn btn-primary">Submit</button>
+          <button  id="logOut" type="submitLogin" class="btn btn-outline-primary">Log Out</button>
+          <div id="loginMessage"></div>
+        </form>
+
+      </div>
+      <div class="col  p-0 tabcontent" id="courses">
+        <div class="row">
+          <div class="col">
+            <form class="formB">
+              <div class="form-row">
+                <div class="form-group col">
+                  <label for="eventType">Event Type</label>
+                  <select class="form-control" id="eventType">
+                    <option selected>Choose...</option>
+                    <option value="University Course">University Course</option>
+                    <option value="Seminar">Seminar</option>
+                    <option value="Certification Preparation Class">Certification Preparation Class</option>
+                    <option value="Certification">Certification</option>
+                    <option value="Technical Training">Technical Training</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <div class="form-group col">
+                  <label for="courseTime">Time</label><br>
+                  <input type="time" id="courseTime" name="appt" min="09:00" max="18:00" required>
+                  <small>Office hours are 9am to 6pm</small>
+                </div>
+                <div class="form-group col">
+                  <label for="startDate">Start date:</label><br>
+                  <input type="date" id="startDate" name="trip-start" value="2021-01-22" min="2021-01-01" max="2024-12-31" required>
+                </div>
+                <div class="form-group col">
+                  <label for="inputLocation">Location</label>
+                  <input type="text" class="form-control" id="inputLocation" placeholder="Location"required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col">
+                  <label for="description">Description of Event/Course</label>
+                  <textarea class="form-control" id="description" rows="2" required></textarea>
+                </div>
+                <div class="form-group col">
+                  <label for="inputCost">Cost</label>
+                  <input type="text" class="form-control" id="inputCost" placeholder="$Cost"required>
+                </div>
+                <div class="form-group col">
+                  <label for="gradingFormat">Grading Format</label>
+                  <select class="form-control" id="gradingFormat">
+                    <option value="Grades">Grades</option>
+                    <option value="Pass/Fail">Pass/Fail</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col">
+                  <label for="requiredGrade">Grade required to pass</label>
+                  <input type="text" class="form-control" id="requiredGrade" placeholder="Grade" required>
+                </div>
+                <div class="form-group col">
+                  <label for="workJustification">How will this help</label>
+                  <input type="text" class="form-control" id="workJustification" placeholder="" required>
+                </div>
+              </div>
+    
+              <button id="submitCourseBtn" type="submit" class="btn btn-primary">Submit Course</button>
+              <span id="subitCourseMessage"></span>
+            </form>
+          </div>
+        
+        </div>
+          <div class="row w-100">
+              <div class="col w-100 justify-content-center text-center ">
+                <div ><button type="button"id="getCoursesBtn" class="btn btn-primary mb-1">GET COURSES</button></div>
+              </div>
+              <div class="col w-100 justify-content-center text-center ">
+                <div >
+                  <button type="button"id="approveCourseBtn" class="btn btn-primary mb-1">Approve Course</button>
+                  <div class="input-group">
+                    <span class="input-group-prepend">
+                      <span class="input-group-text" id="">Course#</span>
+                    </span>
+                    <input type="number" class="" id="approveCourseInput">
+                  </div>
+                </div>
+              </div>
+              <div class="col w-100 justify-content-center text-center ">
+                <div ><span id="displayName"></span>  :  <span id="displayRole"></span></div>
+                <div ><span>Reimburstment available</span>  :  <span id="displayReimburstment"></span></div>
+              </div>
+          </div>
+          <div class="row">
+            <div class="col justify-content-center text-center ">
+              <table class="table  courseTable">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Cost</th>
+                    <th scope="col">Grading/Format</th>
+                    <th scope="col">Type of Event</th>
+                    <th scope="col">Grade Required</th>
+                    <th scope="col">Urgent</th>
+                    <th scope="col">Grade</th>
+                    <th scope="col">Work Justification</th>
+                    <th scope="col">Id of Employee</th>
+                    <th scope="col">Aprovals</th>
+                  </tr>
+                </thead>
+                <tbody id="courseTableBody">
+                  <!-- <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr> -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        
+      </div>
+      <div class="col  h-100 p-0 tabcontent" id="resume"></div>
+      <div class="col  h-100 p-0 tabcontent" id="contact"></div>
+
+    </div>
+
+  </div>
+
+  
+
+
+
+
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+  <script src="login.js"></script>
+
+</body>
+
+</html>
