@@ -1,0 +1,10 @@
+body ,html{
+    background-color: rgb(195, 217, 236);
+}
+
+.form{
+    border-radius: 25px;
+    margin-top: 30%;
+    padding: 5%;
+    background-color: rgb(255, 255, 255);
+}
